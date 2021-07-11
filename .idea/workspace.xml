@@ -159,7 +159,28 @@
       <option name="project" value="LOCAL" />
       <updated>1626007069396</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="IMC - Calculation">
+      <created>1626008146745</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1626008146745</updated>
+    </task>
+    <task id="LOCAL-00004" summary="IMC - Calculation">
+      <created>1626008233191</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626008233191</updated>
+    </task>
+    <task id="LOCAL-00005" summary="IMC - Calculation">
+      <created>1626008413334</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1626008413334</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,6 +199,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="IMC - Calculation" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="254" key="#Notifications" timestamp="1626008251752">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="552" y="254" key="#Notifications/0.0.1600.860@0.0.1600.860" timestamp="1626008251752" />
     <state x="317" y="176" key="#PSD" timestamp="1625923377231">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -190,5 +215,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1625923422941" />
+    <state x="392" y="150" key="Vcs.Push.Dialog.v2" timestamp="1626008213274">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="150" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1626008213274" />
   </component>
 </project>
