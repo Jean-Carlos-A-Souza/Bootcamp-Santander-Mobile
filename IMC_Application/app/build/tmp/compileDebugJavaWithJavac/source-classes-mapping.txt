@@ -1,2 +1,0 @@
-com/apolo/imc_application/BuildConfig.java
- com.apolo.imc_application.BuildConfig
