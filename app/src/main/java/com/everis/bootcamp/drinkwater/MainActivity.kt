@@ -1,9 +1,15 @@
 package com.everis.bootcamp.drinkwater
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
+import com.everis.bootcamp.sync.DrinkWaterReminderIntentService
+import com.everis.bootcamp.sync.DrinkWaterReminderTask
+import com.everis.bootcamp.utils.PreferencesUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -13,26 +19,45 @@ class MainActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setListeners()
 
-        //TODO: 008 - Realize a chamada da função updateWaterCount
+         updateWaterCount()
 
         imageview_cup_icon.setOnClickListener {
-            //TODO: 009 - Chame a função incrementWaterHandler
+            incrementWaterHandler()
         }
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         prefs.registerOnSharedPreferenceChangeListener(this)
     }
 
-    /*TODO: 007 - crie uma função updateWaterCount
-        - Atualize o textview_quantity com o valor da PreferencesUtils.getWaterCount
-     */
+    private fun setListeners(){
+            btn_calcular.setOnClickListener {
+            calcularIMC(ed_Peso.text.toString())
+        }
+    }
 
-    /*TODO: 008 - crie uma função chamada incrementWaterHandler
-        - Crie uma intent explicita para acionar o DrinkWaterReminderIntentService
-        - Defina a action da Intent com a constant ACTION_INCREMENT_WATER_COUNT
-        - Chame startService e passe a intent como parametro
-     */
+    private fun calcularIMC(peso: String) {
+        val peso = peso.toFloatOrNull()
+
+        if (peso != null) {
+            val calc = peso * 0.035
+            val calc2 = calc * 5
+            inf.text = "Voce deve Beber: %.1f Litros de Agua ou %.1f copos".format(calc, calc2)
+        }
+    }
+
+
+    fun updateWaterCount() {
+        val count = PreferencesUtils.getWaterCount(this)
+        textview_quantity.text= "$count"
+    }
+
+    fun incrementWaterHandler(){
+        val intent = Intent(this, DrinkWaterReminderIntentService:: class.java)
+        intent.action = DrinkWaterReminderTask.ACTION_INCREMENT_WATER_COUNT
+        startService(intent)
+    }
 
 
     override fun onDestroy() {
@@ -42,6 +67,9 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        //TODO: 010 - Chame o método updateWaterCount se o parametro key for igual a constante PrefencesUtils.KEY_WATER_COUNT
-    }
+        if (PreferencesUtils.KEY_WATER_COUNT == key){
+            updateWaterCount()
+        }
+
+     }
 }
